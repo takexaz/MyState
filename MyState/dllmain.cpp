@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "StateControllerEx.h"
 
-void stcReg(TPFILE*, STATE_INFO*, PLAYER_CACHE*);
+int stcReg(TPFILE*, STATE_INFO*, PLAYER_CACHE*);
 void stcProc(PLAYER*, STATE_INFO*);
 void stcFree(STATE_INFO*);
 
@@ -10,7 +10,7 @@ struct MYSTATE {
     EVAL_EXP value;
 };
 
-void stcReg(TPFILE* tpf, STATE_INFO* sinfo, PLAYER_CACHE* pcache) {
+int stcReg(TPFILE* tpf, STATE_INFO* sinfo, PLAYER_CACHE* pcache) {
     MYSTATE* mystate = new MYSTATE;
     sinfo->params = mystate;
     DWORD TEMP;
@@ -20,7 +20,7 @@ void stcReg(TPFILE* tpf, STATE_INFO* sinfo, PLAYER_CACHE* pcache) {
     if (value) {
         SCtrlReadExpList(value, "i", pcache, &TEMP, &mystate->value);
     }
-    return;
+    return TRUE;
 }
 
 void stcProc(PLAYER* p, STATE_INFO* sinfo) {
