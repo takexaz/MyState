@@ -33,6 +33,7 @@ void stcProc(PLAYER* p, STATE_INFO* sinfo) {
 void stcFree(STATE_INFO* sinfo) {
     MYSTATE* mystate = (MYSTATE*)sinfo->params;
     FreeExpression(&mystate->value);
+    delete mystate;
     return;
 }
 
