@@ -87,9 +87,9 @@ struct EXP_STR {
     string str = "";
 };
 
-auto TPGetValue = einterpret_cast<const char* (*)(TPFILE* tpf, const char* label)>(0x483b30);
+auto TPGetValue = reinterpret_cast<const char* (*)(TPFILE* tpf, const char* label)>(0x483b30);
 auto SCtrlReadExpList = reinterpret_cast<int (*)(const char* value, const char* format, PLAYER_CACHE* pcache, DWORD* TEMP, ...)>(0x47d780);
-auto FreeExpression = einterpret_cast<void (*)(EVAL_EXP* ptr)>(0x406e00);
+auto FreeExpression = reinterpret_cast<void (*)(EVAL_EXP* ptr)>(0x406e00);
 
 #ifdef _EXPORTING
 #define CLASS_DECLSPECEC extern "C" __declspec(dllexport)
