@@ -1,5 +1,6 @@
 ﻿// dllmain.cpp : DLL アプリケーションのエントリ ポイントを定義します。
 #include "pch.h"
+#include <Mebius.h>
 #include <StateControllerEx.h>
 
 int stcReg(TPFILE*, STATE_INFO*, PLAYER_CACHE*);
