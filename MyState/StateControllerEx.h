@@ -17,8 +17,8 @@ struct COORD3D {
 
 struct TRIGGER_CONTROL {
     DWORD unkown1;
-    int numBytes;//ƒgƒŠƒK[‚Í‰½Byte‹æØ‚è‚©
-    int count01;//ƒgƒŠƒK[‘”
+    int numBytes;//ãƒˆãƒªã‚¬ãƒ¼ã¯ä½•ByteåŒºåˆ‡ã‚Šã‹
+    int count01;//ãƒˆãƒªã‚¬ãƒ¼ç·æ•°
     int count02;
     int count03;
     void* info;
@@ -27,7 +27,7 @@ struct TRIGGER_CONTROL {
 
 struct STATE_INFO {
     TRIGGER_CONTROL* trg;
-    int trgX;//triggerXÅ‘å
+    int trgX;//triggerXæœ€å¤§
     int persistent;
     int ignoregitpause;
     int stateid;
@@ -47,7 +47,6 @@ struct PLAYER_CACHE {
 struct TPFILE {
     void* unknown;
 };
-
 
 struct PLAYER {
     PLAYER_CACHE* pcache;
@@ -88,9 +87,9 @@ struct EXP_STR {
     string str = "";
 };
 
-static const char* (* const TPGetValue)(TPFILE* tpf, const char* param) = reinterpret_cast<const char* (*)(TPFILE*, const char*)>(0x483b30);
-static int (* const SCtrlReadExpList)(const char* value, const char* format, PLAYER_CACHE* pcache, void* undef, ...) = reinterpret_cast<int (*)(const char*, const char*, PLAYER_CACHE*, void*, ...)>(0x47d780);
-static void (* const FreeExpression)(EVAL_EXP* ptr) = reinterpret_cast<void (*)(EVAL_EXP*)>(0x406e00);
+auto TPGetValue = einterpret_cast<const char* (*)(TPFILE* tpf, const char* label)>(0x483b30);
+auto SCtrlReadExpList = reinterpret_cast<int (*)(const char* value, const char* format, PLAYER_CACHE* pcache, DWORD* TEMP, ...)>(0x47d780);
+auto FreeExpression = einterpret_cast<void (*)(EVAL_EXP* ptr)>(0x406e00);
 
 #ifdef _EXPORTING
 #define CLASS_DECLSPECEC extern "C" __declspec(dllexport)
@@ -99,7 +98,6 @@ static void (* const FreeExpression)(EVAL_EXP* ptr) = reinterpret_cast<void (*)(
 #define CLASS_DECLSPECEC extern "C" __declspec(dllimport)
 #define CLASS_DECLSPEC __declspec(dllimport)
 #endif
-
 
 CLASS_DECLSPECEC void addState(string, DWORD, DWORD, DWORD);
 CLASS_DECLSPEC void constExp(EVAL_EXP*, int);
