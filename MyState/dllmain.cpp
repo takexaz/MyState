@@ -10,6 +10,7 @@ struct MYSTATE {
     EVAL_EXP value;
 };
 
+// FALSE=Error
 int stcReg(TPFILE* tpf, STATE_INFO* sinfo, PLAYER_CACHE* pcache) {
     MYSTATE* mystate = new MYSTATE;
     sinfo->params = mystate;
