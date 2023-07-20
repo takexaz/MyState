@@ -1,7 +1,7 @@
 ﻿// dllmain.cpp : DLL アプリケーションのエントリ ポイントを定義します。
 #include "pch.h"
 #include <Mebius.h>
-#include <StateControllerEx.h>
+#include <StateControllerExtension.h>
 
 int stcReg(TPFILE*, STATE_INFO*, PLAYER_CACHE*);
 void stcProc(PLAYER*, STATE_INFO*);
@@ -50,7 +50,13 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH: {
-        addState("mystate", (DWORD)stcReg, (DWORD)stcProc, (DWORD)stcFree);
+        STX mystate = STX{
+            "mystate",
+            stcReg,
+            stcProc,
+            stcFree, 
+        };
+        addState(mystate);
     }
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:

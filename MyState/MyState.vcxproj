@@ -92,7 +92,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Mebius.lib;StateControllerEx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Mebius.lib;StateControllerExtension.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\libmebius</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -116,7 +116,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>Mebius.lib;StateControllerEx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Mebius.lib;StateControllerExtension.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\libmebius</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -156,7 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\libmebius\Mebius.h" />
-    <ClInclude Include="..\..\libmebius\StateControllerEx.h" />
+    <ClInclude Include="..\..\libmebius\StateControllerExtension.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
