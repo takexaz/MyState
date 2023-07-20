@@ -9,6 +9,7 @@ void stcFree(STATE_INFO*);
 
 struct MYSTATE {
     EVAL_EXP value;
+    char x[256] = "";
 };
 
 // FALSE=Error
@@ -22,6 +23,8 @@ int stcReg(TPFILE* tpf, STATE_INFO* sinfo, PLAYER_CACHE* pcache) {
     if (value) {
         SCtrlReadExpList(value, "i", pcache, &TEMP, &mystate->value);
     }
+
+    GetQuotedString(tpf, "text", mystate->x, sizeof(mystate->x));
     return TRUE;
 }
 
