@@ -2,6 +2,8 @@
 #include "pch.h"
 #include <Mebius.h>
 #include <StateControllerExtension.h>
+#pragma comment(lib, "Mebius.lib")
+#pragma comment(lib, "StateControllerExtension.lib")
 
 int stcReg(TPFILE*, STATE_INFO*, PLAYER_CACHE*);
 void stcProc(PLAYER*, STATE_INFO*);
